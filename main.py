@@ -14,4 +14,4 @@ async def on_ready():
     print("Bot is loaded and running.")
 
 
-bot.run()
+bot.run(TOKEN)
