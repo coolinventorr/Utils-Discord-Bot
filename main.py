@@ -30,11 +30,16 @@ async def unban(ctx, *, member):
 
     for ban_entry in banned_users:
         user = ban_entry.user
-
+        user_final = None
         if (user.name, user.discriminator) == (member_name, member_discriminator):
+            user_final = user
             await ctx.guild.unban(user)
             await ctx.send(f'{user.mention} has been unbanned.')
             return
+            
+    if user_final None:
+        await ctx.send(f'{user.name} is not banned.')
+        return
 
 @bot.command()
 async def mute(ctx, member: discord.Member):
